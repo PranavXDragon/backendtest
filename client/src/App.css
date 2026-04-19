@@ -5,15 +5,92 @@
   color: white;
 }
 
+.header-content h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+}
+
+.header-content p {
+  margin: 0 0 1rem 0;
+  opacity: 0.9;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.nav-btn:hover {
+  background: white;
+  color: #667eea;
+}
+
+.nav-btn.active {
+  background: white;
+  color: #667eea;
+}
+
 .app-footer {
   background: rgba(0, 0, 0, 0.3);
   padding: 1.5rem;
   text-align: center;
   color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.status-wrapper {
+  position: relative;
+}
+
+.back-btn {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #5568d3;
+  transform: translateX(-2px);
 }
 
 @media (max-width: 768px) {
-  .app {
-    padding: 1rem;
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .nav-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .back-btn {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 }
