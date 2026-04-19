@@ -30,11 +30,7 @@ export async function connectDB() {
 
       // Write concern and reliability
       retryWrites: true,
-      w: 'majority',
-
-      // Reduce connection setup time
-      keepAlive: true,
-      keepAliveInitialDelayMS: 10000,
+      w: 'majority'
     });
 
     cachedConnection = connection;

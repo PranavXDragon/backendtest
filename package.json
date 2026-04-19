@@ -1,6 +1,7 @@
 {
   "name": "backendtest",
   "version": "1.0.0",
+  "type": "module",
   "description": "React Vite + Node.js + MongoDB Contact Form",
   "main": "server.js",
   "engines": {
