@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from '../styles/Contact.module.css';
 
 export default function Contact() {
+  const router = useRouter();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
+  const [redirectTimer, setRedirectTimer] = useState(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,9 +34,10 @@ export default function Contact() {
       });
 
       const data = await response.json();
-
-      if (data.success) {
-        setStatus({ type: 'success', message: data.message });
+`${data.message} - Redirecting...` });
+        setFormData({ name: '', email: '', message: '' });
+        const timer = setTimeout(() => router.push('/'), 2000);
+        setRedirectTimer(timerdata.message });
         setFormData({ name: '', email: '', message: '' });
         setTimeout(() => setStatus(null), 5000);
       } else if (data.errors) {
@@ -48,7 +52,12 @@ export default function Contact() {
       setStatus({ type: 'error', message: 'Failed to submit form' });
     } finally {
       setLoading(false);
-    }
+    
+
+  const handleManualRedirect = () => {
+    if (redirectTimer) clearTimeout(redirectTimer);
+    router.push('/');
+  };}
   };
 
   return (
@@ -121,6 +130,12 @@ export default function Contact() {
           </form>
 
           <div className={styles.infoBox}>
+
+          {status?.type === 'success' && (
+            <button onClick={handleManualRedirect} className={styles.redirectBtn}>
+              ↩️ Return to Home
+            </button>
+          )}
             <h3>💡 About This App</h3>
             <p>✅ Built with Next.js 14</p>
             <p>💾 Powered by MongoDB</p>
