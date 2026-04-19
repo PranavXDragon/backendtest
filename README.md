@@ -1,59 +1,94 @@
 # BackendTest
 
-Full-stack React Vite + Node.js + MongoDB Contact Form Application
+Full-stack Next.js + MongoDB Contact Form Application
 
 ## Features
-- React Vite frontend with contact form
-- Node.js Express backend API
-- MongoDB database for storing contacts
+- Next.js 14 frontend with React 18
+- MongoDB database with Mongoose
+- RESTful API endpoints
+- Contact form with validation
+- Status dashboard
 - Responsive design
-- Environment-based configuration
 - Vercel deployment ready
 
-## Setup
+## Tech Stack
+- **Frontend:** Next.js 14 + React 18
+- **Backend:** Next.js API Routes
+- **Database:** MongoDB Atlas
+- **Deployment:** Vercel
+
+## Quick Start
 
 ### Prerequisites
-- Node.js 16+
+- Node.js 18+
 - MongoDB Atlas account
-- Git
 
 ### Installation
 
 ```bash
-# Install backend dependencies
 npm install
-
-# Install frontend dependencies
-cd client && npm install
 ```
 
 ### Environment Setup
 
-Create `.env` file in root:
+Create `.env.local`:
 ```
-MONGODB_URI=mongodb+srv://Test:test@t.7bexn6b.mongodb.net/?appName=T
-PORT=5000
-NODE_ENV=development
+MONGODB_URI=mongodb+srv://Test:Test@t.7bexn6b.mongodb.net/?appName=T
 ```
 
-### Running the Project
+### Running
 
-**Backend (Terminal 1):**
 ```bash
-npm run server
+npm run dev
 ```
 
-**Frontend (Terminal 2):**
-```bash
-cd client && npm run dev
+Open [http://localhost:3000](http://localhost:3000)
+
+## Project Structure
+
 ```
+backendtest/
+├── pages/                 # Next.js pages and API routes
+│   ├── api/              # API endpoints
+│   │   ├── health.js     # Health check
+│   │   └── contacts/     # Contact endpoints
+│   ├── _app.js           # App wrapper
+│   ├── _document.js      # Document wrapper
+│   ├── index.js          # Home page
+│   ├── contact.js        # Contact form page
+│   └── status.js         # Status dashboard
+├── lib/                  # Utilities
+│   ├── mongodb.js        # MongoDB connection
+│   └── models/           # Mongoose models
+├── styles/               # CSS modules
+└── public/               # Static files
+```
+
+## API Endpoints
+
+- `POST /api/contacts` - Create contact
+- `GET /api/contacts` - Get all contacts
+- `GET /api/contacts/[id]` - Get single contact
+- `PUT /api/contacts/[id]` - Update contact
+- `DELETE /api/contacts/[id]` - Delete contact
+- `GET /api/health` - Health check
 
 ## Deployment
 
-Deployed on Vercel: [Your Vercel URL]
+### Vercel
 
-## Tech Stack
-- Frontend: React 18 + Vite + Axios
-- Backend: Node.js + Express
-- Database: MongoDB
-- Deployment: Vercel
+```bash
+npm run build
+npm run start
+```
+
+### Environment Variables for Vercel
+
+```
+MONGODB_URI=mongodb+srv://Test:Test@t.7bexn6b.mongodb.net/?appName=T
+NODE_ENV=production
+```
+
+## License
+
+ISC
